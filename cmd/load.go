@@ -71,9 +71,9 @@ func runLoad(cmd *cobra.Command, args []string) {
 			return
 		}
 	} else {
-		choice, err := ui.RunListUI(currentDir)
-		if err != nil {
-			fmt.Println(ui.Error(fmt.Sprintf("Error: %v", err)))
+		choice, listErr := ui.RunListUI(currentDir)
+		if listErr != nil {
+			fmt.Println(ui.Error(fmt.Sprintf("Error: %v", listErr)))
 			return
 		}
 
@@ -87,8 +87,8 @@ func runLoad(cmd *cobra.Command, args []string) {
 			return
 		}
 
-		index, err := strconv.Atoi(parts[1])
-		if err != nil || index < 0 || index >= len(backups) {
+		index, parseErr := strconv.Atoi(parts[1])
+		if parseErr != nil || index < 0 || index >= len(backups) {
 			fmt.Println(ui.Error("Invalid backup index"))
 			return
 		}
@@ -118,8 +118,8 @@ func runLoad(cmd *cobra.Command, args []string) {
 	}
 
 	fmt.Println(ui.Info("Clearing current directory..."))
-	if err := clearDirectory(currentDir, projectConfig.ID); err != nil {
-		fmt.Println(ui.Error(fmt.Sprintf("Failed to clear directory: %v", err)))
+	if clearErr := clearDirectory(currentDir, projectConfig.ID); clearErr != nil {
+		fmt.Println(ui.Error(fmt.Sprintf("Failed to clear directory: %v", clearErr)))
 		return
 	}
 
@@ -162,7 +162,7 @@ func runLoad(cmd *cobra.Command, args []string) {
 	fmt.Println(ui.Label("Directory", currentDir))
 }
 
-func clearDirectory(dir string, projectID string) error {
+func clearDirectory(dir string, _ string) error {
 	entries, err := os.ReadDir(dir)
 	if err != nil {
 		return err

@@ -35,7 +35,7 @@ func runList(cmd *cobra.Command, args []string) {
 		return
 	}
 
-	if _, err := config.LoadProjectConfig(currentDir); err != nil {
+	if _, configErr := config.LoadProjectConfig(currentDir); configErr != nil {
 		fmt.Println(ui.Error("Project not initialized. Run 'backup init' first."))
 		return
 	}

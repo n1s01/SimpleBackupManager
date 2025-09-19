@@ -32,13 +32,13 @@ func runInit(cmd *cobra.Command, args []string) {
 	}
 
 	configPath := filepath.Join(currentDir, config.ConfigFileName)
-	if _, err := os.Stat(configPath); err == nil {
+	if _, statErr := os.Stat(configPath); statErr == nil {
 		fmt.Println(ui.Warning("Project already initialized in this directory"))
 		fmt.Println()
 
-		existingConfig, err := config.LoadProjectConfig(currentDir)
-		if err != nil {
-			fmt.Println(ui.Error(fmt.Sprintf("Failed to read existing configuration: %v", err)))
+		existingConfig, loadErr := config.LoadProjectConfig(currentDir)
+		if loadErr != nil {
+			fmt.Println(ui.Error(fmt.Sprintf("Failed to read existing configuration: %v", loadErr)))
 			return
 		}
 

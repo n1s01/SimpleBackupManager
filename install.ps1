@@ -1,5 +1,3 @@
-# Backup Tool Installer
-
 $downloadUrl = "https://github.com/n1s01/SimpleBackupManager/releases/download/v1.0.0/backup.exe"
 $installDir = "$env:LOCALAPPDATA\BackupTool"
 $executablePath = "$installDir\backup.exe"

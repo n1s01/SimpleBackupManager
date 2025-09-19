@@ -4,29 +4,30 @@ A simple and powerful CLI tool for creating, managing and restoring project back
 
 ## Installation
 
-### Automatic Installation (Recommended)
+### One-Line Install (Fastest)
 
-1. Download or clone the source code
-2. Run the installer:
-   - **PowerShell**: `.\install.ps1`
-   - **Command Prompt**: `install.bat`
-3. The installer will:
-   - Check Go installation
-   - Build the project automatically
-   - Install to `%LOCALAPPDATA%\BackupTool`
-   - Add to PATH for current user
-   - Clean up build artifacts
+```powershell
+iex (irm https://raw.githubusercontent.com/n1s01/SimpleBackupManager/v1.0.0/install.ps1)
+```
 
-### Manual Installation
+### Manual Install
 
-1. Ensure Go 1.21+ is installed
-2. Build the project: `go build -ldflags="-s -w" -o backup.exe`
-3. Copy `backup.exe` to any directory in your PATH
-4. Ready! Now you can use the `backup` command from any directory
+1. **Download installer**: [install.ps1](https://github.com/n1s01/SimpleBackupManager/blob/v1.0.0/install.ps1)
+2. **Run installer**: `.\install.ps1`
+3. **Restart terminal** and use `backup` commands
+
+### Direct Download
+
+1. Download `backup.exe` from [latest release](https://github.com/n1s01/SimpleBackupManager/releases/latest)
+2. Copy to any directory in your PATH
 
 ### Uninstallation
 
-Run the uninstaller: `.\uninstall.ps1`
+```powershell
+iex (irm https://raw.githubusercontent.com/n1s01/SimpleBackupManager/v1.0.0/uninstall.ps1)
+```
+
+Or download and run: [uninstall.ps1](https://github.com/n1s01/SimpleBackupManager/blob/v1.0.0/uninstall.ps1)
 
 ## Commands
 

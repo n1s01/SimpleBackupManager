@@ -36,10 +36,10 @@ var (
 			Padding(0, 1).
 			Bold(true)
 
-	headerStyle = lipgloss.NewStyle().
-			Foreground(lipgloss.Color("#874BFD")).
-			Bold(true).
-			PaddingLeft(2)
+	_ = lipgloss.NewStyle().
+		Foreground(lipgloss.Color("#874BFD")).
+		Bold(true).
+		PaddingLeft(2)
 
 	itemStyle = lipgloss.NewStyle().
 			PaddingLeft(4)
